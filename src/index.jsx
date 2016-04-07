@@ -14,7 +14,7 @@ import StoryModal from './StoryModal/StoryModal.jsx';
 require('./Toolbox/global.scss');
 import styles from './index.scss';
 //Test component
-import {stories} from './testAssets/stories.js';
+import {stories} from './assets/stories/stories.js';
 import DevTools from './Toolbox/DevTools.jsx'
 
 const QS_URL="https://iamadatapoint.com/example";
@@ -40,9 +40,11 @@ httpRequest.send();
 */
 //end getting information from the server
 
+console.log('stories[0] is ', stories[0]);
+
 store.dispatch({
     type: 'SET_STORIES',
-    stories: stories[Math.floor((Math.random()*stories.length))]
+    stories: stories[0]
 });
 
 const AppContainer = () => (

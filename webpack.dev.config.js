@@ -20,7 +20,7 @@ module.exports = {
         ],
         loaders:[
             {
-             test: /\.png$/,
+             test: /\.(png|jpeg)$/,
              exclude: /node_modules/,
              loader: 'url-loader'
             },

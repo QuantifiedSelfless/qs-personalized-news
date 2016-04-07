@@ -18,7 +18,7 @@ module.exports = {
         ],
         loaders:[
             {
-             test: /\.png$/,
+             test: /\.(jpeg|png)$/,
              exclude: /node_modules/,
              loader: 'url-loader'
             },

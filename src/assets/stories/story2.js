@@ -11,7 +11,7 @@ export const story2 =
     {
         "image": "http://lorempixel.com/200/200/",
         "type": "Headline",
-        "title": "rawr rawr rawr",
+        "title": "Story 2",
         "text": lipsum
     },
     {

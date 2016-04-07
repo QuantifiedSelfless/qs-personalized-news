@@ -59,7 +59,6 @@ render(
     <Provider store={store}>
         <div>
             <AppContainer />
-            <DevTools />
         </div>
     </Provider>,
     document.getElementById('app')

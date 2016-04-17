@@ -17,16 +17,19 @@ import styles from './index.scss';
 import {stories} from './assets/stories/stories.js';
 import DevTools from './Toolbox/DevTools.jsx'
 
-const QS_URL="http://quantifiedselfbackend.local/news_processor/news_category?rfid="
+const QS_URL="http://quantifiedselfbackend.local:6060/news_processor/news_category?rfid="
 const store=createStore(reducer, INITIAL_STATE, DevTools.instrument());
 
 //getting information from the server boilerplate
 var userResponse;
+var storyToRender = null;
 
 var httpRequest = new XMLHttpRequest();
 httpRequest.onreadystatechange = function(){
-    if(httpRequest.readyState === 4 && httpRequest.status === 200)
+    if(httpRequest.readyState === 4 && httpRequest.status === 200){
         userResponse = JSON.parse(httpRequest.responseText);
+        storyToRender = userResponse.data.category;
+    }
     else
     {
         console.log("ready state", httpRequest.readyState)
@@ -40,9 +43,12 @@ var fullRequestUrl = QS_URL+userId
 httpRequest.open("GET", fullRequestUrl);
 httpRequest.send();
 
+if(storyToRender === null)
+    storyToRender = 5;
+
 store.dispatch({
     type: 'SET_STORIES',
-    stories: stories[5]
+    stories: stories[storyToRender]
 });
 
 const AppContainer = () => (

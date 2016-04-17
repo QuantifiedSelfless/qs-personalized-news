@@ -52,9 +52,14 @@ module.exports = {
             title: 'Global News: Your Personal Headlines for March 6th, 2050',
             appMountId: 'app'
         }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
         new webpack.optimize.UglifyJsPlugin({
             minimize: true
-        }),
-        new webpack.optimize.DedupePlugin()
+        })
+        //new webpack.optimize.DedupePlugin()
     ]
 };

@@ -51,6 +51,10 @@ module.exports = {
             template: 'node_modules/html-webpack-template/index.html',
             title: 'Global News: Your Personal Headlines for March 6th, 2050',
             appMountId: 'app'
-        })
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            minimize: true
+        }),
+        new webpack.optimize.DedupePlugin()
     ]
 };

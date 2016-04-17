@@ -36,6 +36,7 @@ httpRequest.onreadystatechange = function(){
 
 var userId = getParameterByName('userId');
 var fullRequestUrl = QS_URL+userId
+
 httpRequest.open("GET", fullRequestUrl);
 httpRequest.send();
 

@@ -32,7 +32,7 @@ module.exports = {
                 loader: 'react-hot!babel'
             },
             {
-                test: /\.(tff?|html)$/,
+                test: /\.tff?$/,
                 exclude: /node_modules/,
                 loader: 'file-loader'
             }
@@ -47,11 +47,12 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        /*new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({
+            inject: false,
             template: 'node_modules/html-webpack-template/index.html',
             title: 'Global News: Your Personal Headlines for March 6th, 2050',
             appMountId: 'app'
-        }),*/
+        }),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')

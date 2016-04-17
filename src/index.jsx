@@ -13,8 +13,6 @@ import StoryModal from './StoryModal/StoryModal.jsx';
 //Scss (webpacked)
 require('./Toolbox/global.scss');
 import styles from './index.scss';
-//index.html for webpack
-require('./index.html');
 //Test component
 import {stories} from './assets/stories/stories.js';
 import DevTools from './Toolbox/DevTools.jsx'

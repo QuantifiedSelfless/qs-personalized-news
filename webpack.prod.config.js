@@ -60,6 +60,5 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             minimize: true
         })
-        //new webpack.optimize.DedupePlugin()
     ]
 };

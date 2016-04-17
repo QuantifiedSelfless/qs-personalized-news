@@ -28,13 +28,51 @@ var httpRequest = new XMLHttpRequest();
 httpRequest.onreadystatechange = function(){
     if(httpRequest.readyState === 4 && httpRequest.status === 200){
         userResponse = JSON.parse(httpRequest.responseText);
-        console.log('userRepsonse', userResponse);
         storyToRender = userResponse.data.category;
+        store.dispatch({
+            type: 'SET_STORIES',
+            stories: stories[storyToRender]
+        });
+
+        const AppContainer = () => (
+            <div className={styles.appContainer}>
+                <Header />
+                <StoriesContainer />
+                <StoryModal />
+            </div>
+        );
+
+        render(
+            <Provider store={store}>
+                <div>
+                    <AppContainer />
+                </div>
+            </Provider>,
+            document.getElementById('app')
+        )
     }
-    else
-    {
-        console.log("ready state", httpRequest.readyState)
-        console.log("response status", httpRequest.status)
+    else{
+        store.dispatch({
+            type: 'SET_STORIES',
+            stories: stories[5]
+        });
+
+        const AppContainer = () => (
+            <div className={styles.appContainer}>
+                <Header />
+                <StoriesContainer />
+                <StoryModal />
+            </div>
+        );
+
+        render(
+            <Provider store={store}>
+                <div>
+                    <AppContainer />
+                </div>
+            </Provider>,
+            document.getElementById('app')
+        )
     }
 };
 
@@ -46,28 +84,3 @@ var fullRequestUrl = QS_URL+userId
 
 httpRequest.open("GET", fullRequestUrl);
 httpRequest.send();
-
-if(storyToRender === null)
-    storyToRender = 5;
-
-store.dispatch({
-    type: 'SET_STORIES',
-    stories: stories[storyToRender]
-});
-
-const AppContainer = () => (
-    <div className={styles.appContainer}>
-        <Header />
-        <StoriesContainer />
-        <StoryModal />
-    </div>
-);
-
-render(
-    <Provider store={store}>
-        <div>
-            <AppContainer />
-        </div>
-    </Provider>,
-    document.getElementById('app')
-)

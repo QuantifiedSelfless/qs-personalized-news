@@ -40,11 +40,9 @@ httpRequest.send();
 */
 //end getting information from the server
 
-console.log('stories[0] is ', stories[0]);
-
 store.dispatch({
     type: 'SET_STORIES',
-    stories: stories[0]
+    stories: stories[5]
 });
 
 const AppContainer = () => (

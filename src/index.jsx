@@ -30,7 +30,6 @@ httpRequest.onreadystatechange = function(){
         userResponse = JSON.parse(httpRequest.responseText);
         storyToRender = userResponse.data.category;
         if(storyToRender !== null){
-            console.log('storyToRender is ', storyToRender);
             store.dispatch({
                 type: 'SET_STORIES',
                 stories: stories[storyToRender]

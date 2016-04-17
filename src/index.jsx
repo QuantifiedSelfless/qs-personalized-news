@@ -29,10 +29,16 @@ httpRequest.onreadystatechange = function(){
     if(httpRequest.readyState === 4 && httpRequest.status === 200){
         userResponse = JSON.parse(httpRequest.responseText);
         storyToRender = userResponse.data.category;
-        store.dispatch({
-            type: 'SET_STORIES',
-            stories: stories[storyToRender]
-        });
+        if(storyToRender !== null)
+            store.dispatch({
+                type: 'SET_STORIES',
+                stories: stories[storyToRender]
+            });
+        else
+            store.dispatch({
+                type: 'SET_STORIES',
+                stories: stories[3]
+            });
     }
     else if(httpRequest.readyState === 4 && httpRequest.status !== 200){
         store.dispatch({

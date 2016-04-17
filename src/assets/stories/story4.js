@@ -1,13 +1,13 @@
 const story4Text=
 `If DesignCraft hasn't already become a common name in your home due to its many life
-improving companions, they will after what happened at last weeks' User Appreciate Night.
+improving companions, they will after what happened at last week's User Appreciate Night.
 Forty or so lucky individuals happened to go to a surprise event thrown by DesignCraft 
 where they revealed their biggest feat yet, the CIPbot. If that word means nothing to you, 
 this is the real deal: a humanoid robot with generalized intelligence allowing it to 
 perform basic work tasks. That's right, DesignCraft has its first robo-butler. 
     
 For those of you who have followed DesignCraft, you may have gotten a message or 
-an invitefrom Amelia - their seemingly omniscient online representative whose lovely 
+an invite from Amelia - their seemingly omniscient online representative whose lovely 
 signature anchors all of their communications. It turns out Amelia was some kind of 
 long-term experiment to train an AI on how to be a delightful, productive office worker. 
 So if you thought AI's were only working HR or doing archival work, think again.

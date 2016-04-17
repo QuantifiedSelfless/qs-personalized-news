@@ -28,6 +28,7 @@ var httpRequest = new XMLHttpRequest();
 httpRequest.onreadystatechange = function(){
     if(httpRequest.readyState === 4 && httpRequest.status === 200){
         userResponse = JSON.parse(httpRequest.responseText);
+        console.log('userRepsonse', userResponse);
         storyToRender = userResponse.data.category;
     }
     else

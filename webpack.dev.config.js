@@ -57,11 +57,11 @@ module.exports = {
         hot: true
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin({
+        new webpack.HotModuleReplacementPlugin()
+        /*new HtmlWebpackPlugin({
             template: 'node_modules/html-webpack-template/index.html',
             title: 'Global News: Your Personal Headlines for March 6th, 2050',
             appMountId: 'app'
-        })
+        })*/
     ]
 };

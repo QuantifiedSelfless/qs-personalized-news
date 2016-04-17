@@ -13,6 +13,8 @@ import StoryModal from './StoryModal/StoryModal.jsx';
 //Scss (webpacked)
 require('./Toolbox/global.scss');
 import styles from './index.scss';
+//index.html for webpack
+require('./index.html');
 //Test component
 import {stories} from './assets/stories/stories.js';
 import DevTools from './Toolbox/DevTools.jsx'
@@ -29,11 +31,13 @@ httpRequest.onreadystatechange = function(){
     if(httpRequest.readyState === 4 && httpRequest.status === 200){
         userResponse = JSON.parse(httpRequest.responseText);
         storyToRender = userResponse.data.category;
-        if(storyToRender !== null)
+        if(storyToRender !== null){
+            console.log('storyToRender is ', storyToRender);
             store.dispatch({
                 type: 'SET_STORIES',
                 stories: stories[storyToRender]
             });
+        }
         else
             store.dispatch({
                 type: 'SET_STORIES',
@@ -54,7 +58,8 @@ if(userId === null)
     userId = getParameterByName('userId');
 var fullRequestUrl = QS_URL+userId
 
-httpRequest.open("GET", fullRequestUrl);
+console.log("called the ajax request");
+httpRequest.open("GET", fullRequestUrl, true);
 httpRequest.send();
 
 const AppContainer = () => (

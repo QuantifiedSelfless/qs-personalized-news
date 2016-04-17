@@ -33,46 +33,12 @@ httpRequest.onreadystatechange = function(){
             type: 'SET_STORIES',
             stories: stories[storyToRender]
         });
-
-        const AppContainer = () => (
-            <div className={styles.appContainer}>
-                <Header />
-                <StoriesContainer />
-                <StoryModal />
-            </div>
-        );
-
-        render(
-            <Provider store={store}>
-                <div>
-                    <AppContainer />
-                </div>
-            </Provider>,
-            document.getElementById('app')
-        )
     }
-    else{
+    else if(httpRequest.readyState === 4 && httpRequest.status !== 200){
         store.dispatch({
             type: 'SET_STORIES',
             stories: stories[5]
         });
-
-        const AppContainer = () => (
-            <div className={styles.appContainer}>
-                <Header />
-                <StoriesContainer />
-                <StoryModal />
-            </div>
-        );
-
-        render(
-            <Provider store={store}>
-                <div>
-                    <AppContainer />
-                </div>
-            </Provider>,
-            document.getElementById('app')
-        )
     }
 };
 
@@ -84,3 +50,20 @@ var fullRequestUrl = QS_URL+userId
 
 httpRequest.open("GET", fullRequestUrl);
 httpRequest.send();
+
+const AppContainer = () => (
+    <div className={styles.appContainer}>
+        <Header />
+        <StoriesContainer />
+        <StoryModal />
+    </div>
+);
+
+render(
+    <Provider store={store}>
+        <div>
+            <AppContainer />
+        </div>
+    </Provider>,
+    document.getElementById('app')
+);

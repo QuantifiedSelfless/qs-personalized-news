@@ -40,7 +40,9 @@ const StoryBox = ({story, onClick}) => (
         <img className={getStoryStyles(story.type)[1]} src={story.image}></img>
         <div className={getStoryStyles(story.type)[2]}>{story.title}</div>
         <div className={getStoryStyles(story.type)[3]}>
-            <div className={getStoryStyles(story.type)[4]}>{story.text}</div>
+            <div className={getStoryStyles(story.type)[4]}>
+                <pre>{story.text}</pre>
+            </div>
             <div className={getStoryStyles(story.type)[5]}></div>
         </div>
     </div>

@@ -17,11 +17,11 @@ import styles from './index.scss';
 import {stories} from './assets/stories/stories.js';
 import DevTools from './Toolbox/DevTools.jsx'
 
-const QS_URL="https://iamadatapoint.com/example";
+const QS_URL="http://quantifiedselfbackend.local/news_processor/news_category?rfid="
 const store=createStore(reducer, INITIAL_STATE, DevTools.instrument());
 
 //getting information from the server boilerplate
-/*var userResponse;
+var userResponse;
 
 var httpRequest = new XMLHttpRequest();
 httpRequest.onreadystatechange = function(){
@@ -35,10 +35,9 @@ httpRequest.onreadystatechange = function(){
 };
 
 var userId = getParameterByName('userId');
-httpRequest.open("GET", QS_URL, userId);
+var fullRequestUrl = QS_URL+userId
+httpRequest.open("GET", fullRequestUrl);
 httpRequest.send();
-*/
-//end getting information from the server
 
 store.dispatch({
     type: 'SET_STORIES',

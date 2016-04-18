@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import socketio from 'socket.io-client'
 import reducer from './reducers/reducer';
 import {INITIAL_STATE} from './actions/initialState.js';
 import getParameterByName from './Toolbox/getUrlParameterByName.js'
@@ -23,6 +24,12 @@ const store=createStore(reducer, INITIAL_STATE, DevTools.instrument());
 //getting information from the server boilerplate
 var userResponse;
 var storyToRender = null;
+
+//socket-io connection for being handled by node-pi
+var socket = socketio.connect('http://localhost:3000')
+socket.on('rfid', function(data){
+    setTimeout(function() {window.location = "http://localhost:8000"}, 2000)
+})
 
 var httpRequest = new XMLHttpRequest();
 httpRequest.onreadystatechange = function(){

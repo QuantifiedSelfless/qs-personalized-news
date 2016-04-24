@@ -1,50 +1,13 @@
 const story5Text=
-`Last Saturday evening at a private DesignCraft event, another 
-disrupting innovation by the tech giant was unveiled. Amelia, 
-the creative mind behind much of DesignCraft’s latest innovations,
-was revealed to be a humanoid artificial intelligence system, or more 
-colloquially, an android. Though artificial intelligence is not 
-uncommonly used by many technology companies, for purposes ranging 
-from online logistic decision making to managing a tangled web of brand 
-personalities on social media, none have taken the leap to replicate 
-the fully functional human form. In an article published by the Economist 
-last month, investors claimed they would shy away from any company 
-attemptingto bridge the so-called ‘uncanny valley’, referring to the 
-regime where something  life-like but not quite ‘life’ takes on an eerie aura. 
-Their claim was thatadding the emotional and social baggage of a fully adept 
-human would be a waste of productive resources. DesignCraft’s very own 
-eMotionGauge which tracts the movement of how their users are feeling about 
-certain technologies rates androids 72.3% negatively.  All data seem to point 
-towards DesignCraft stock to take a hit when the markets open Monday morning. 
+`If DesignCraft hasn't already become a common name in your home due to its many life improving companions, they will after what happened at last week's User Appreciate Night. Forty or so lucky individuals happened to go to a surprise event thrown by DesignCraft where they revealed their biggest feat yet, the CIPbot. If that word means nothing to you, this is the real deal: a humanoid robot with generalized intelligence allowing it to perform basic work tasks. That's right, DesignCraft has its first robo-butler. 
+    
+For those of you who have followed DesignCraft, you may have gotten a message or an invite from Amelia - their seemingly omniscient online representative whose lovely signature anchors all of their communications. It turns out Amelia was some kind of long-term experiment to train an AI on how to be a delightful, productive office worker. So if you thought AI's were only working HR or doing archival work, think again. An attendee from the event, who preferred to remain unnamed said, 'She was a walking, talking, emotional being. I didn't even realize she was a cyborg until someone said it outloud.'
 
-“Perhaps not” says Jim Witman, professor of economics and behavioral studies at Yale.
-In a brief phone interview by the Journal after Saturday night’s events, 
-Professor Witman suggested, “What would have happened if Thomas Edison was too 
-concerned by people’s fear of mysterious glowing bulbs to change the world? 
-Technology boldly leaps forward with or without the consent of the public, 
-that’s how progress has always been made.” When asked if he thought if it was 
-unethical to hide that information from Amelia herself, he cited several recent 
-theoretical computer science studies showing that the von Neumann  architecture
-of computation doesn’t satisfy the axioms of suffering. “It’s just a scientific fact, 
-Amelia is a Turing machine executing commands, human suffering can only be emulated, 
-not experienced.”
+'Not only is Amelia a very convincing reproduction of your favorite female coworker, but it turns out she wasn't even aware of her status. Reports have it that Amelia also discovered her real identity at the underground event last week. So unlike the usual DesignCraft dazzle with shiny new metallic screens and fluent interfaces, this was a night of reflection and awe. People were laughing, crying, and startled as they found out how far DesignCraft's technology has really gone.
 
-Professor Witman went on to point out that according to the now mature field of 
-‘disruptive economics’ using your customer’s own assumptions and instincts against 
-them is monetizable and can be a real lure for young Silicon Valley venture capital.
-“At the turn of the millennium, companies were realizing that consumer expectations 
-and government regulations were only getting in the way of the creative mind of the 
-entrepreneur”, says Professor Witman, “Let’s just get out of their way, 
-if I knew what was best, I’d be Don DeClaire not some poor old professor!”
+There's no doubting that this is groundbreaking news, but as technology ceases to see no limits in front of it, what do we do? Buy a CIPbot so you don't have to do your taxes ever or again, or think twice before signing up for your next companion? It's hard to say, but in the meantime, I'm hoping to have the chance to meet one of these androids.
 
-There are some who are still skeptical, such as adjunct lecturer of philosophy at 
-New Jersey Technical Institute, Terrence Davis.  Davis, a regular contributor 
-to local far left publications, claims “Amelia has proven to be a person 
-with real emotions, who deserves the same dignity we grant to any person.”  
-Contrary to the scientific literature, Davis proposes that “suffering can’t 
-be axiomatized”. One thing is for sure, the unexpected reveal of an android 
-employee will affect DesignCraft’s expected quarterly earnings, and has the 
-potential for lasting effects on the US labor market at large.`
+If we're lucky, they just might be more fun to hang out with than your current colleagues.`
 
 import ameliaLight from '../images/amelia-light.jpeg';
 export const story5 =
@@ -52,7 +15,7 @@ export const story5 =
         {
             "image": ameliaLight,
             "type": "Headline",
-            "title": "DesignCraft Leaks Latest Innovation: Android Employees",
+            "title": "DesignCraft May Have Outdone Themselves This Time",
             "text": story5Text 
         }
 ]

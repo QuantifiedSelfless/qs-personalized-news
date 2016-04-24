@@ -30,6 +30,7 @@ $story-hover-color: #CCC8BC;
 }
 
 .headlineTitle{
+    margin-bottom: 1.5%;
     height: 10%;
     text-align: center;
     font-size: xx-large;
@@ -49,7 +50,15 @@ $story-hover-color: #CCC8BC;
     font-size: x-large;
     font-family: "Times New Roman", Serif, Georgia;
     font-weight: 500;
-    text-align: center;
+    text-align: justify;
+    word-break: break-word;
+    margin-bottom: 5%;
+}
+
+.prewrap{
+    white-space: pre-wrap;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 /*.headlineBlurbFadeover{

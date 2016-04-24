@@ -1,6 +1,7 @@
 //React and friends (other 3rd party libs)
 import React from 'react';
 import { render } from 'react-dom';
+import {renderToString} from 'react-dom/server'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import socketio from 'socket.io-client'
@@ -51,7 +52,7 @@ httpRequest.onreadystatechange = function(){
     else if(httpRequest.readyState === 4 && httpRequest.status !== 200){
         store.dispatch({
             type: 'SET_STORIES',
-            stories: stories[5]
+            stories: stories[0]
         });
     }
 };

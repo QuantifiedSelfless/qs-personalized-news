@@ -5,9 +5,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var pjson = require('./package.json');
 
 module.exports = {
-    entry: [
-        './src/index.jsx'
-    ],
+    entry: {
+        'main':'./src/index.jsx'
+    },
     module: {
         preLoaders: [
             {

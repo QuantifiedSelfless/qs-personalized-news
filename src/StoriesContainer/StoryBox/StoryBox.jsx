@@ -37,11 +37,11 @@ const getStoryStyles = function(storyType){
 
 const StoryBox = ({story, onClick}) => (
     <div className={getStoryStyles(story.type)[0]} onClick={onClick}>
-        <img className={getStoryStyles(story.type)[1]} src={story.image}></img>
         <div className={getStoryStyles(story.type)[2]}>{story.title}</div>
+        <img className={getStoryStyles(story.type)[1]} src={story.image}></img>
         <div className={getStoryStyles(story.type)[3]}>
             <div className={getStoryStyles(story.type)[4]}>
-                <pre>{story.text}</pre>
+                <pre className={styles.prewrap}>{story.text}</pre>
             </div>
             <div className={getStoryStyles(story.type)[5]}></div>
         </div>

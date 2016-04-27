@@ -52,7 +52,7 @@ httpRequest.onreadystatechange = function(){
     else if(httpRequest.readyState === 4 && httpRequest.status !== 200){
         store.dispatch({
             type: 'SET_STORIES',
-            stories: stories[0]
+            stories: stories[5]
         });
     }
 };
@@ -71,7 +71,6 @@ const AppContainer = () => (
     <div className={styles.appContainer}>
         <Header />
         <StoriesContainer />
-        <StoryModal />
     </div>
 );
 

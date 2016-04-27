@@ -34,7 +34,7 @@ module.exports = {
             {
                 test: /\.tff?$/,
                 exclude: /node_modules/,
-                loader: 'file-loader'
+                loader: 'url-loader?limit=1000'
             }
         ]
     },

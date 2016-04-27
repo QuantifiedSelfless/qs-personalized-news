@@ -9,4 +9,4 @@ if [[ -z $pid ]]
 fi
 
 cd dist
-python3 -m http.server $port
+node server.js

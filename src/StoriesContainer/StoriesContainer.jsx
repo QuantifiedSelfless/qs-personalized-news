@@ -10,7 +10,7 @@ import styles from './StoriesContainer.scss'
 const StoriesList = ({stories, onClick}) => (
     <div className={styles.StoriesContainer}>
         {stories.map((story,i) =>
-            <StoryBox key={i} story={story} onClick={() => onClick(story)}/>
+            <StoryBox key={i} story={story}/>
         )}
     </div>
 );

@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var http = require('http');
-const QS_HOST="http://quantifiedselfbackend.local:6060";
+const QS_HOST="http://quantifiedselfbackend.local";
+const QS_PORT=6060;
 const QS_PATH="/news_processor/news_category?rfid=";
 var stories = ['story1', 'story2', 'story3', 'story4', 'story5', 'story6'];
 var storyToServe=null;
@@ -17,6 +18,7 @@ app.get('/', function(req, res){
     fullRequestPath = QS_PATH+userId;
     var request = http.get({
         hostname: QS_HOST,
+        port: QS_PORT,
         path: fullRequestPath
     }, function(response){
         var responseJSON = JSON.parse(response);

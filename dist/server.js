@@ -1,19 +1,13 @@
 var express = require('express');
 var app = express();
 var http = require('http');
-var socketio = require('socket.io-client');
 const QS_HOST="http://quantifiedselfbackend.local:6060";
 const QS_PATH="/news_processor/news_category?rfid=";
-var socket = socketio.connect('http://localhost:3000');
 var stories = ['story1', 'story2', 'story3', 'story4', 'story5', 'story6'];
 var storyToServe=null;
 var storyToRender=null;
 var userId=null;
 var fullRequestPath=null;
-
-socket.on('rfid', function(data){
-    setTimeout(function() {window.location = "http://localhost:8000"}, 2000)
-});
 
 app.use(express.static('assets'))
 app.get('/', function(req, res){
@@ -23,7 +17,7 @@ app.get('/', function(req, res){
     fullRequestPath = QS_PATH+userId;
     var request = http.get({
         hostname: QS_HOST,
-        path:fullRequestPath
+        path: fullRequestPath
     }, function(response){
         var responseJSON = JSON.parse(response);
         storyToRender = responseJSON.data.category;

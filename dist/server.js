@@ -11,7 +11,6 @@ var storyToRender=null;
 var userId=null;
 var fullRequestPath=null;
 
-
 socket.on('rfid', function(data){
     setTimeout(function() {window.location = "http://localhost:8000"}, 2000)
 });

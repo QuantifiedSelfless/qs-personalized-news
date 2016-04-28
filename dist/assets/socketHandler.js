@@ -5,11 +5,11 @@ socket.on('rfid', function(data){
     setTimeout(function() {window.location = "http://localhost:8000"}, 2000)
 });
 //auto logout
-timeoutHandler = setTimeout(function() {window.location="http://localhost:8000"}, 60000);
+timeoutHandler = setTimeout(function() {window.location="http://localhost:8000"}, 120000);
 //reset the timer onscroll
-window.onscroll = function() {
+document.onscroll = function() {
     console.log("scrolled");
     window.clearTimeout(timeoutHandler);
-    timeoutHandler = window.setTimeout(function() {window.location="http://localhost:8000"}, 60000);
+    timeoutHandler = window.setTimeout(function() {window.location="http://localhost:8000"}, 120000);
 }
 

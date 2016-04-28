@@ -1,37 +1,45 @@
 var express = require('express');
 var app = express();
+var http = require('http');
 var socketio = require('socket.io-client');
-const QS_URL="http://quantifiedselfbackend.local:6060/news_processor/news_category?rfid=";
+const QS_HOST="http://quantifiedselfbackend.local:6060";
+const QS_PATH="/news_processor/news_category?rfid=";
 var socket = socketio.connect('http://localhost:3000');
 var stories = ['story1', 'story2', 'story3', 'story4', 'story5', 'story6'];
 var storyToServe=null;
 var storyToRender=null;
+var userId=null;
+var fullRequestPath=null;
+
 
 socket.on('rfid', function(data){
-    var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = function(){
-        if(httpRequest.readyState === 4 && httpRequest.status === 200){
-            var userResponse = JSON.parse(httpRequest.responseText);
-            storyToRender = userResponse.data.category;
-            if(storyToRender !== null){
-                storyToServe=stories[storyToRender];
-            }
-            else{
-                storyToServe=stories[3];
-            }
-            setTimeout(function() {window.location = "http://localhost:7070/"+storyToServe}, 2000)
-        }
-        else if(httpRequest.readyState === 4 && httpRequest.status !== 200){
-            storyToServe=stories[5];
-            setTimeout(function() {window.location = "http://localhost:7070/"+storyToServe}, 2000)
-        }
-    };
+    setTimeout(function() {window.location = "http://localhost:8000"}, 2000)
 });
-
 
 app.use(express.static('assets'))
 app.get('/', function(req, res){
-    res.sendFile(__dirname+'/story1.html');
+    userId = req.query.rfid;
+    if(userId === null)
+        userId = req.query.userId;
+    fullRequestPath = QS_PATH+userId;
+    var request = http.get({
+        hostname: QS_HOST,
+        path:fullRequestPath
+    }, function(response){
+        var responseJSON = JSON.parse(response);
+        storyToRender = responseJSON.data.category;
+        if(storyToRender !== null){
+            storyToServe=stories[storyToRender]
+        }
+        else{
+            storyToServe=stories[3] 
+        }
+        res.sendFile(__dirname+'/'+storyToServe+'.html')
+    });
+    request.on('error', function(e){
+        console.log("QS data host not found");
+        res.sendFile(__dirname+'/story3.html');
+    });
 });
 
 app.get('/story1', function(req, res){

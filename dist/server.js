@@ -27,7 +27,8 @@ app.get('/', function(req, res){
             storyToServe=stories[storyToRender]
         }
         else{
-            storyToServe=stories[3] 
+            sample = Math.floor((Math.random())*6)
+            storyToServe=stories[sample] 
         }
         res.sendFile(__dirname+'/'+storyToServe+'.html')
     });

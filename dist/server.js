@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var http = require('http');
-const QS_HOST="http://quantifiedselfbackend.local";
+const QS_HOST="quantifiedselfbackend.local";
 const QS_PORT=6060;
 const QS_PATH="/news_processor/news_category?rfid=";
 var stories = ['story1', 'story2', 'story3', 'story4', 'story5', 'story6'];
@@ -21,18 +21,24 @@ app.get('/', function(req, res){
         port: QS_PORT,
         path: fullRequestPath
     }, function(response){
-        var responseJSON = JSON.parse(response);
-        storyToRender = responseJSON.data.category;
-        if(storyToRender !== null){
-            storyToServe=stories[storyToRender]
-        }
-        else{
-            sample = Math.floor((Math.random())*6)
-            storyToServe=stories[sample] 
-        }
-        res.sendFile(__dirname+'/'+storyToServe+'.html')
+        response.on('data', function(data) {
+            var responseJSON = JSON.parse(data);
+            storyToRender = responseJSON.data.category;
+            if(storyToRender !== null){
+                storyToServe=stories[storyToRender]
+                console.log("got the goods")
+            }
+            else{
+                console.log("didn't get the goods")
+                sample = Math.floor((Math.random())*6)
+                storyToServe=stories[sample] 
+            }   
+            res.sendFile(__dirname+'/'+storyToServe+'.html')
+        })
     });
     request.on('error', function(e){
+        console.log(e);
+        console.log(request);
         console.log("QS data host not found");
         sample = Math.floor((Math.random())*6)
         storyToServe=stories[sample]

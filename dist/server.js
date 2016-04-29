@@ -34,7 +34,9 @@ app.get('/', function(req, res){
     });
     request.on('error', function(e){
         console.log("QS data host not found");
-        res.sendFile(__dirname+'/story3.html');
+        sample = Math.floor((Math.random())*6)
+        storyToServe=stories[sample]
+        res.sendFile(__dirname+'/'+storyToServe+'.html');
     });
 });
 

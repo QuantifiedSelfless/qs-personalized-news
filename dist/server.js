@@ -23,7 +23,7 @@ app.get('/', function(req, res){
     }, function(response){
         response.on('data', function(data) {
             var responseJSON = JSON.parse(data);
-            storyToRender = responseJSON.data.category;
+            storyToRender = Math.floor((Math.random())*6)
             if(storyToRender !== null){
                 storyToServe=stories[storyToRender]
                 console.log("got the goods")
